@@ -38,3 +38,22 @@ docker run --rm -p 4321:80 --name oncokb-sop oncokb/oncokb-sop:x.x.x
 ```sh
 docker push oncokb/oncokb-sop:x.x.x
 ```
+
+## Add New SOP Check List
+
+- [ ] Add SOP PDF to the `/sop` folder
+- [ ] Add HTML to `index.html`
+
+  ```html
+  <li>
+    <a href="/sop/OncoKB_Curation_Standard_Operating_Procedure_vX_X.pdf"
+      ><span>Version X.X</span>
+      <span>MMMMM YYYY</span>
+    </a>
+  </li>
+  ```
+
+- [ ] Run a docker build of the website with the new SOP and verify the links work.
+- [ ] Make a Pull Request
+- [ ] After the code is merged push the docker image
+- [ ] Update production with the latest SOP docker image
