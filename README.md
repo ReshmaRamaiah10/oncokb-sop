@@ -55,5 +55,4 @@ docker push oncokb/oncokb-sop:x.x.x
 
 - [ ] Run a docker build of the website with the new SOP and verify the links work.
 - [ ] Make a Pull Request
-- [ ] After the code is merged push the docker image
 - [ ] Update production with the latest SOP docker image
