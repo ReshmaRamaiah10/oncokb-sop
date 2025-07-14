@@ -18,7 +18,7 @@ A subset of oncogenic alterations in cancer may act as biomarkers that may be di
 ### Run Locally
 
 ```sh
-python3 -m http.server 4321
+go run main.go
 ```
 
 ### Build Docker Image
@@ -30,7 +30,7 @@ docker build --platform=linux/amd64 -t oncokb/oncokb-sop:x.x.x .
 ### Run Docker Image
 
 ```sh
-docker run --rm -p 4321:80 --name oncokb-sop oncokb/oncokb-sop:x.x.x
+docker run --rm -p 4321:4321 --name oncokb-sop oncokb/oncokb-sop:x.x.x
 ```
 
 ### Push Docker Image
@@ -41,12 +41,12 @@ docker push oncokb/oncokb-sop:x.x.x
 
 ## Add New SOP Check List
 
-- [ ] Add SOP PDF to the `/sop` folder
-- [ ] Add HTML to `index.html`
+- [ ] Add SOP PDF to the `/static/sop` folder
+- [ ] Add HTML to `/static/index.html`
 
   ```html
   <li>
-    <a href="/sop/OncoKB_Curation_Standard_Operating_Procedure_vX_X.pdf"
+    <a href="/static/sop/OncoKB_Curation_Standard_Operating_Procedure_vX_X.pdf"
       ><span>Version X.X</span>
       <span>MMMMM YYYY</span>
     </a>

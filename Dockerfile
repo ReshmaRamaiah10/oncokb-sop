@@ -1,11 +1,19 @@
-FROM ubuntu
-RUN apt-get update
-RUN apt-get install nginx -y
-COPY index.html /var/www/html/
-COPY sop /var/www/html/sop
-COPY css /var/www/html/css
-COPY images /var/www/html/images
-COPY js /var/www/html/js
+FROM golang:1.21 AS builder
 
-EXPOSE 80
-CMD ["nginx","-g","daemon off;"]
+WORKDIR /app
+
+COPY main.go ./
+COPY static ./static
+
+RUN go build -o server main.go
+
+FROM debian:bookworm-slim
+
+WORKDIR /app
+COPY --from=builder /app/server .
+COPY --from=builder /app/static ./static
+
+EXPOSE 8080
+
+CMD ["./server"]
+
